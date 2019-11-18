@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block header %}{% endblock %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+  <section style="margin: 30px;">
+    <div class="welcome">
+        <h2>Welcome to chatroom</h2>
+        <label for="username__input" class="username__form label">Choose user name</label>
+        <input type="text" id='username__input' class="username__form form-control" name="username__input">
+        <button class="username__form btn btn-primary" id="username__button">Submit</button>
+    </div>
+    <div class="create__channel">
+        <div class="display__username"></div>
+        <button class="new_channel__button btn btn-primary btn-sm">New channel</button>
+        <form action="#" class="new_channel__form" onsubmit="return false;">
+            <label for="new_channel__name" clas="label">Channel name:</label><input type="text" id="new_channel__name" class="form-control-sm" placeholder="New channel name" name="channel">
+            <input type="submit" value="Add" id="new_channel__submit" class="btn btn-primary btn-sm">
+        </form>
+    </div>
+    {% if channels %}
+        <div class="channels">
+            <h3>Channels:</h3>
+            <ul class="channels__list">
+              {% for channel in channels %}
+                    <a href="#"><li class="channel" onclick="getChannelMessages(this)">{{channel}}</li></a>
+              {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <div class="channels" style="display: none;">
+            <h3>Channels:</h3>
+                <ul class="channels__list"></ul>
+        </div>
+    {% endif %}
+    <div class="messages__window">
+        <h3 class="messages__header"></h3>
+        <div class="messages">
+            <div class="messages__display">
+                <div class="message">
+                </div>
+
+            </div>
+            <div class="place_to_write_message">
+                <textarea placeholder="Write a message"></textarea>
+                <input type="submit" value="Send" id="send_message" class="btn btn-primary btn-small">
+            </div>
+        </div>
+
+    </div>
+    <div style="clear:both;"></div>
+  </section>
+  <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

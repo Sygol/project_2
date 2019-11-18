@@ -1,0 +1,250 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body{
+   background-image: linear-gradient(to right, rgba(100,43,115, 0.7), rgba(198,66,110, 0.7)), url(background.jpg);
+   background-size: cover;
+   color: white;
+}
+
+h2{
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+    margin-bottom: 8vh;
+    text-shadow: 1.5px 0 0 #000, -1.5px 0 0 #000, 0 1.5px 0 #000, 0 -1.5px 0 #000, 0.75px 0.75px #000, -0.75px -0.75px 0 #000, 0.75px -0.75px 0 #000, -0.75px 0.75px 0 #000;
+
+}
+.welcome{
+   position: absolute;
+   width: 40vw;
+   height: 40vh;
+   top: 35%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+
+}
+
+.display__username{
+   font-size: 1.3rem;
+   font-weight: 500;
+   text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 0.5px 0.5px #000, -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000;
+}
+
+.create__channel{
+
+   margin-top: 17vh;
+   margin-left: 5%;
+}
+
+.username__form{
+    display:none;
+}
+
+#username__button{
+    width: 30%;
+    margin: auto;
+}
+
+.label{
+    font-size: 1.5rem;
+}
+
+#username__input{
+    margin: 15px auto 20px auto;
+    width: 60%;
+    height: 2.2rem;
+}
+
+.new_channel__form{
+    display: none;
+}
+
+#new_channel__name{
+    display: block;
+}
+
+.btn-sm{
+    width: 100px;
+    margin: 10px 0;
+}
+.form-control-sm{
+    border: none;
+}
+
+.channels{
+    margin-left: 5%;
+    margin-top: 20px;
+}
+
+ul{
+    width: 16%;
+    background: white;
+    word-break:break-all;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 50px 0px #000000;
+    border: 1px solid black;
+}
+
+li{
+    margin-left: 20px;
+    color: black;
+}
+
+.messages__window{
+    position: absolute;
+    top: 17vh;
+    left: 58%;
+    transform: translateX(-50%);
+}
+
+.messages{
+    display: none;
+    margin-top: 20px;
+    width: 50vw;
+    height: 70vh;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: #e6e6e6;
+    font-size: 0.9rem;
+    box-shadow: 2px 2px 30px 2px #000000;
+}
+
+.place_to_write_message{
+    height: 10%;
+    border-top: 1px solid black;
+    display: flex;
+    align-items: center;
+}
+
+.messages__display{
+    height: calc(90% - 10px);
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+textarea{
+    margin-left: 2.5%;
+    width: 80%;
+    height: 80%;
+    background: #fff;
+    border: none;
+    border-radius: 2px;
+    padding: 4px;
+}
+
+#send_message{
+    width: 14%;
+    margin: 1vh auto;
+    padding: 3px;
+}
+
+.message{
+    margin: 10px 15% 0px 35px;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 4px 10px 4px 10px;
+    background: white;
+}
+
+.message__author{
+    font-weight: 600;
+}
+.message__date{
+    float:right;
+    font-weight:450;
+    font-size: 0.7rem;
+}
+
+.message__text{
+    word-break:break-all;
+}
+
+.remove__message{
+    display: none;
+    font-weight: 550;
+    position: relative;
+    cursor: pointer;
+    left: 23%;
+}
+
+h3{
+    font-size: 1.3rem;
+    text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 0.5px 0.5px #000, -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000;
+
+}
+
+
+@media screen and (max-width: 900px){
+   body{
+       background-image: linear-gradient(to right, rgba(100,43,115, 0.7), rgba(198,66,110, 0.7)), url(background2.jpg);
+       background-size: no-repeat;
+   }
+
+   h2{
+    font-size: 2rem;
+    letter-spacing: 3px;
+    margin-bottom: 5vh;
+   }
+
+   .welcome{
+    width: 65vw;
+    top: 35%;
+   }
+
+   #username__button{
+    width: 30%;
+    margin: auto;
+   }
+
+    .label{
+        font-size: 1.1rem;
+    }
+
+    #username__input{
+        margin: 10px auto 15px auto;
+        width: 60%;
+        height: 2.2rem;
+    }
+
+    .messages{
+        width: 55vw;
+    }
+
+    .messages__window{
+       left: 62%;
+       top: 17.2vh;
+    }
+    .message{
+        font-size: 0.8rem;
+    }
+    .message__date{
+        font-size: 0.6rem;
+    }
+
+    ul{
+       width: 7.5rem;
+    }
+
+    #send_message{
+        padding: 1px;
+    }
+
+    #new_channel__name{
+        width: 8.5rem;
+    }
+
+}
+
+@media screen and (max-width: 700px){
+
+    .create__channel, .channels{
+        margin-left: 0;
+    }
+}
