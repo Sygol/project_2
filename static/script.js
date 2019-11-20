@@ -8,7 +8,7 @@ if (!localStorage.getItem('channel'))
 if (localStorage.getItem('username')!=0)
     layout()
 
-var socket = io.connect('https://project2-chat.herokuapp.com');
+var socket = io.connect('http://project2-chat.herokuapp.com');
 
 //layout when user already has username
 function layout(){
