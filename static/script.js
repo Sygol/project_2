@@ -33,27 +33,6 @@ function formatDate(){
 }
 
 function connectSocket() {
-    document.querySelector('#send_message').onclick = () => {
-          var author = localStorage.getItem('username');
-          var date = formatDate()
-          var message = document.querySelector('textarea').value;
-          if (message == ''){
-            return false
-          }
-          var channel = document.querySelector('.messages__header').textContent;
-          socket.emit('send message', {'author': author, 'date': date, 'message': message, 'channel':channel});
-          addMessageAjax(author, date, message);
-    };
-
-    document.querySelector('#new_channel__submit').onclick = () => {
-          var newChannelName = document.querySelector('#new_channel__name').value;
-          var isNewChannel = verifyChannelName(newChannelName);
-          if (isNewChannel){
-              document.querySelector('.new_channel__button').style.display = 'block';
-              socket.emit('add channel', {'channel': newChannelName});
-              newChannelAjax(newChannelName);
-          }
-    }
 
     socket.on('announce message', data => {
         if (data.channel==document.querySelector('.messages__header').textContent){
@@ -265,5 +244,25 @@ document.querySelector('.new_channel__button').onclick = () =>{
     document.querySelector('.new_channel__form').style.display = 'block';
 }
 
+document.querySelector('#send_message').onclick = () => {
+      var author = localStorage.getItem('username');
+      var date = formatDate()
+      var message = document.querySelector('textarea').value;
+      if (message == ''){
+        return false
+      }
+      var channel = document.querySelector('.messages__header').textContent;
+      socket.emit('send message', {'author': author, 'date': date, 'message': message, 'channel':channel});
+      addMessageAjax(author, date, message);
+};
 
+document.querySelector('#new_channel__submit').onclick = () => {
+      var newChannelName = document.querySelector('#new_channel__name').value;
+      var isNewChannel = verifyChannelName(newChannelName);
+      if (isNewChannel){
+          document.querySelector('.new_channel__button').style.display = 'block';
+          socket.emit('add channel', {'channel': newChannelName});
+          newChannelAjax(newChannelName);
+      }
+}
 
