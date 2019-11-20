@@ -1,4 +1,6 @@
 Flask
 Flask-SocketIO==2.0
 gunicorn
+eventlet
+
 
