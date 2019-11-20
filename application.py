@@ -10,7 +10,6 @@ socketio = SocketIO(app)
 global_dict = {}
 channels = []
 
-
 @app.route("/")
 def index():
     return render_template('index.html', global_dictionary=global_dict, channels=channels)
